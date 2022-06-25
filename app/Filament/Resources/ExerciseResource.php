@@ -4,14 +4,14 @@ namespace App\Filament\Resources;
 
 use App\Filament\Resources\ExerciseResource\Pages;
 use App\Filament\Resources\ExerciseResource\RelationManagers;
+use App\Forms\Components\CustomComponent;
+use App\Forms\Components\RangeSlider;
 use App\Models\Exercise;
 use Filament\Forms;
 use Filament\Resources\Form;
 use Filament\Resources\Resource;
 use Filament\Resources\Table;
 use Filament\Tables;
-use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Database\Eloquent\SoftDeletingScope;
 
 class ExerciseResource extends Resource
 {
@@ -25,7 +25,27 @@ class ExerciseResource extends Resource
             ->schema([
                 Forms\Components\TextInput::make('name')->required(),
                 Forms\Components\TextInput::make('description')->required(),
+//                ImageColumn::make('sub_description'),
+                RangeSlider::make('test'),
 
+//                Fieldset::make('Label')
+//                    ->schema([
+//                        Forms\Components\TextInput::make('name')->required(),
+//                    ]),
+//                Wizard::make([
+//                    Wizard\Step::make('name')
+//                        ->schema([
+//                            Forms\Components\TextInput::make('name')->required(),
+//                        ]),
+//                    Wizard\Step::make('description')
+//                        ->schema([
+//                            Forms\Components\TextInput::make('description')->required(),
+//                        ]),
+//                    Wizard\Step::make('sub_description')
+//                        ->schema([
+//                            Forms\Components\TextInput::make('sub_description')->required(),
+//                        ]),
+//                    ])
             ]);
     }
 
@@ -35,6 +55,7 @@ class ExerciseResource extends Resource
             ->columns([
                 Tables\Columns\TextColumn::make('name')->searchable(),
                 Tables\Columns\TextColumn::make('description'),
+                Tables\Columns\ImageColumn::make('sub_description'),
             ])
             ->defaultSort('id','desc')
             ->filters([

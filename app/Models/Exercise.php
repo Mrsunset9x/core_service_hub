@@ -17,6 +17,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
  * @property string $description
  * @property integer $platform_id
  * @property integer $lesson_id
+ * @property string $test
  * @property integer $position
  * @property integer $is_active
  * @property integer $duration
@@ -54,6 +55,7 @@ class Exercise extends Model
 
     public $fillable = [
         'name',
+        'test',
         'description',
         'platform_id',
         'lesson_id',
@@ -79,6 +81,7 @@ class Exercise extends Model
     protected $casts = [
         'id' => 'integer',
         'name' => 'string',
+        'test' => 'string',
         'description' => 'string',
         'platform_id' => 'integer',
         'lesson_id' => 'integer',
@@ -100,6 +103,7 @@ class Exercise extends Model
     public static $rules = [
         'name' => 'required',
         'description' => 'nullable',
+        'test' => 'nullable',
         'platform_id' => 'nullable',
         'lesson_id' => 'nullable',
         'position' => 'nullable',
