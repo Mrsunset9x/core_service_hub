@@ -89,7 +89,7 @@ return [
     'auth' => [
         'guard' => env('FILAMENT_AUTH_GUARD', 'web'),
         'pages' => [
-            'login' => \JeffGreco13\FilamentBreezy\Http\Livewire\Auth\Login::class,
+            'login' => \Filament\Http\Livewire\Auth\Login::class,
         ],
     ],
 
@@ -124,7 +124,9 @@ return [
     'resources' => [
         'namespace' => 'App\\Filament\\Resources',
         'path' => app_path('Filament/Resources'),
-        'register' => [],
+        'register' => [
+            \Modules\License\Filament\Resources\ProductResource::class
+        ],
     ],
 
     /*
@@ -171,7 +173,7 @@ return [
     |
     */
 
-    'dark_mode' => false,
+    'dark_mode' => true,
 
     /*
     |--------------------------------------------------------------------------

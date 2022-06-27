@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Filament\Resources;
+namespace Modules\License\Filament\Resources;
 
-use App\Filament\Resources\ProductResource\Pages;
-use App\Filament\Resources\ProductResource\RelationManagers;
+use Modules\License\Filament\Resources\ProductResource\Pages;
+use Modules\License\Filament\Resources\ProductResource\RelationManagers;
 use Modules\License\Models\Product;
 use Filament\Forms;
 use Filament\Resources\Form;
@@ -23,8 +23,7 @@ class ProductResource extends Resource
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('name')->required(),
-                Forms\Components\TextInput::make('short_description')->required(),
+                //
             ]);
     }
 
@@ -33,7 +32,6 @@ class ProductResource extends Resource
         return $table
             ->columns([
                 Tables\Columns\TextColumn::make('name')->searchable(),
-                Tables\Columns\TextColumn::make('short_description'),
             ])
             ->filters([
                 //
