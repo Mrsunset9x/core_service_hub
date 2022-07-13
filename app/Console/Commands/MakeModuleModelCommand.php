@@ -21,12 +21,11 @@ class MakeModuleModelCommand extends EntityCommand
     {
         $nameModule  = $this->option('module');
         $nameModule = Str::studly($nameModule);
-        if (!$nameModule) {
-            return 0;
+        if ($nameModule) {
+            config()->set('repository.generator.basePath', module_path($nameModule));
+            config()->set('repository.generator.rootNamespace', "Modules\\$nameModule\\");
         }
 
-        config()->set('repository.generator.basePath', module_path($nameModule));
-        config()->set('repository.generator.rootNamespace', "Modules\\$nameModule\\");
         $this->laravel->call([$this, 'fire'], func_get_args());
     }
 

@@ -5,7 +5,7 @@ return [
     'buttons' => [
 
         'visit_documentation' => [
-            'label' => 'Documentation',
+            'label' => 'Core Service Hub',
         ],
 
         'visit_github' => [

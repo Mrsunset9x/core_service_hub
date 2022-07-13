@@ -4,6 +4,8 @@ namespace Modules\License\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Database\Eloquent\Factory;
+use Livewire\Livewire;
+use Modules\License\Filament\Resources\VerbResource;
 
 class LicenseServiceProvider extends ServiceProvider
 {
@@ -28,6 +30,7 @@ class LicenseServiceProvider extends ServiceProvider
         $this->registerConfig();
         $this->registerViews();
         $this->loadMigrationsFrom(module_path($this->moduleName, 'Database/Migrations'));
+        Livewire::component('VerbResource', VerbResource::class);
     }
 
     /**
